@@ -1,16 +1,16 @@
 # Ignore all
 /*
-!.gitignore
+#!.gitignore
 
 # Ignore these folders
-#.git/*
+.git/*
 # ignore these files
-#.gitignore
-#.gitattributes
+.gitignore
+.gitattributes
 # except these files
-#!README.md
-#!LICENSE.md
-#!ACS6121_V-rep_Paulo_Loma.pdf
+!README.md
+!LICENSE.md
+!ACS6121_V-rep_Paulo_Loma.pdf
 
 
 # Ignore this folder
