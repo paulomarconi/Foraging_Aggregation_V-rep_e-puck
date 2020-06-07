@@ -1,0 +1,32 @@
+# Ignore all
+/*
+!.gitignore
+
+# Ignore these folders
+#.git/*
+# ignore these files
+#.gitignore
+#.gitattributes
+# except these files
+#!README.md
+#!LICENSE.md
+#!ACS6121_V-rep_Paulo_Loma.pdf
+
+
+# Ignore this folder
+#scenes/*
+# except these files
+#!scenes/Sim_1_Robots.ttt
+#!scenes/Sim_5_Robots.ttt
+
+
+# Ignore this folder
+#Data/*
+# except this file
+#!Vrep.m
+# Ignore these subfolders inside that folder
+#Data/DataRobot1/*
+#Data/DataRobot5/*
+# except these files inside that subfolder
+#!Data/DataRobot1/*.txt
+#!Data/DataRobot5/*.txt
