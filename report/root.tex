@@ -1,0 +1,334 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+%\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment this line out if you need a4paper
+
+\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
+
+\IEEEoverridecommandlockouts                              % This command is only needed if 
+                                                          % you want to use the \thanks command
+
+\overrideIEEEmargins                                      % Needed to meet printer requirements.
+
+%In case you encounter the following error:
+%Error 1010 The PDF file may be corrupt (unable to open PDF file) OR
+%Error 1000 An error occurred while parsing a contents stream. Unable to analyze the PDF file.
+%This is a known problem with pdfLaTeX conversion filter. The file cannot be opened with acrobat reader
+%Please use one of the alternatives below to circumvent this error by uncommenting one or the other
+%\pdfobjcompresslevel=0
+%\pdfminorversion=4
+
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+% The following packages can be found on http:\\www.ctan.org
+%\usepackage{graphics} % for pdf, bitmapped graphics files
+%\usepackage{epsfig} % for postscript graphics files
+%\usepackage{mathptmx} % assumes new font selection scheme installed
+\usepackage{times} % assumes new font selection scheme installed
+%\usepackage{amsmath} % assumes amsmath package installed
+%\usepackage{amssymb}  % assumes amsmath package installed
+
+\usepackage[T1]{fontenc} %para los separación de palabras "can-ción"
+\usepackage{amsmath,amssymb,amsfonts,latexsym,textcomp}
+\usepackage{array,multirow,booktabs,tabulary} %tablas y arrays
+\usepackage{graphicx} 
+\usepackage{caption,float,subfigure} %float=figuras flotantes.
+\usepackage{verbatim}  %texto raw 
+\usepackage[ampersand]{easylist}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table,x11names]{xcolor} 
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usetikzlibrary{automata,arrows} 
+%\tikzset{every picture/.style={/utils/exec={\ttfamily}}}
+
+
+%\newcommand{\figref}[1]{\figurename~\ref{#1}}
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+
+
+%---- Bibliografia bibtex+biblatex -----------------------------------------
+\usepackage[backend=bibtex,natbib,sorting=none]{biblatex} %backref=hyperlinks de inversa, e.g.(vid. pag. xx)	
+\bibliography{vrep.bib} 
+
+
+%\usepackage[backend=biber,style=ieee]{biblatex}
+%\addbibresource{biblatex-ieee.bib}
+%\bibliography{vrep.bib}
+%
+
+%\usepackage[backend=bibtex,style=IEEtran,natbib=true]{biblatex} 
+%\renewcommand{\bibfont}{\footnotesize} % for IEEE bibfont size
+%\addbibresource{vrep.bib}
+
+%\usepackage{IEEEtran}
+%\bibliographystyle{IEEEtran}
+%\bibliography{vrep.bib} 
+
+%\usepackage[numbers]{natbib}
+%\bibliographystyle{IEEEtranN}
+%\bibliography{vrep.bib} 
+
+
+%---- Hyperlinks  ----------------------------------------------------------
+\usepackage[ %
+breaklinks, %
+colorlinks=true, %
+linkcolor=black, %
+citecolor=black, %
+urlcolor=black %
+]{hyperref} 
+\urlstyle{same}
+
+%---- Usar otros fonts + símbolo \degree -----------------------------------
+\newcommand*{\myfont}{\fontfamily{lmtt}\selectfont}
+\DeclareTextFontCommand{\textmyfont}{\myfont}	
+\usepackage{gensymb} 
+
+
+%---- Code highlighting con Listings ---------------------------------------
+\usepackage{listings}	
+\definecolor{mygreen}{rgb}{0.5,0.6,0.5}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{mygray2}{rgb}{0.9764, 0.9764, 0.9762}
+%---- Config listings ------------------------------------------------------
+\lstset{ %
+	backgroundcolor=\color{mygray2},	% background color \color{mygray2}
+	basicstyle=\footnotesize\ttfamily,	% tamaño de las letras y tipo de letra
+	breaklines=true,	% corte de linea (line breaking)solo en espacio blanco
+	captionpos=b,		% posicion del caption b,t,n (top,bottom,none)
+	commentstyle=\color{ForestGreen},	% estilo del comentario
+	%escapeinside={\%*}{*},	% si se desea agregar codigo Latex dentro el codigo debe ser %*codigo latex*
+	frame=none,	% agrega marco al codigo (single)
+	frameround=tttt,	% redondear el marco
+	keepspaces=true,	% mantiene los espacios en el texto, util para mantener la indentacion del codigo (uso posible en columns=flexible)
+	keywordstyle=\color{blue},	% estilo de los keywords
+	stringstyle=\color{mymauve},	% estilo del string
+	numbers=left,	% donde poner los numeros de linea, (none, left, right)
+	numbersep=5pt,	% cuan lejos los numeros de linea estan del codigo
+	xleftmargin=0pt,	% margen izquierdo
+	showspaces=false,	% muestra espacios de codigo en todas partes usando el caracter barra baja "_", sobreescribe el comando 'showstringspaces'
+	showstringspaces=false,	% muestra espacios solo en los strings
+	tabsize=2,	% tabulacion por defecto =2
+	title=\lstname	% muestra el nombre de lo archivos incluidos con \lstinputlisting; tambien se puede tratar con caption en vez de title
+}	
+%---- Config personalizada del caption -------------------------------------
+\DeclareCaptionFont{white}{\color{black}}
+\DeclareCaptionFormat{listing}{
+	%	\colorbox[cmyk]{0.43, 0.35, 0.35, 0.01 }{
+	%		\parbox{0.96\linewidth}{\hspace{15pt}#1#2#3}
+	%	}
+	\colorbox{white}{
+		\parbox{0.96\linewidth}{\centering #1#2#3}
+	}
+}
+\captionsetup[lstlisting]{ format=listing, 
+	labelfont=white, 
+	textfont=white, 
+	singlelinecheck=false, 
+	margin=0pt, 
+	font={bf,footnotesize} }
+%---- Caracteres especiales ------------------------------------------------	
+% Por defecto, listings no soporta inputec para mostrar los acentos y caracteres especiales.
+% para manejar utf8 se debe enlistar los caracteres segun:
+\lstset{literate=
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+	{?}{{\oe}}1 {?}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{ñ}{{\~n}}1 {£}{{\pounds}}1 {°}{{\degree}}1 
+}		
+%---- Macro de inclusión de documentos con listings ------------------------
+% [2]=numero de argumentos, #1=argumento 1, #2=argumento 2
+\newcommand{\includecode}[2]{\lstinputlisting[language=#1, caption=#2, label=#2]{#2}}			
+\renewcommand{\lstlistingname}{Script}
+
+
+
+
+
+
+
+
+%------------------------------------------------------------------------------------------
+\title{\LARGE \bf Simple Foraging and Random Aggregation Strategy for swarm robotics without communication - ACS6121 2018/19}
+
+%\author{Albert Author$^{1}$ and Bernard D. Researcher$^{2}$% <-this % stops a space
+\author{ %
+	Paulo Roberto Loma Marconi$^{1}$% <-this % stops a space
+	%\thanks{*This work was not supported by any organization}% <-this % stops a space
+	%\thanks{$^{1}$Albert Author is with Faculty of Electrical Engineering, Mathematics and Computer Science, University of Twente, 7500 AE Enschede, The Netherlands {\tt\small albert.author@papercept.net} }%	
+	\thanks{$^{1}$The author is with the Department of Automatic Control Systems Engineering, The University of Sheffield, UK {\tt\small prlomamarconi1@sheffiel.ac.uk} }%	
+	%\thanks{$^{2}$Bernard D. Researcheris with the Department of Electrical Engineering, Wright State University, Dayton, OH 45435, USA {\tt\small b.d.researcher@ieee.org}}%
+}
+
+%==============================================================================================
+\begin{document}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+	In swarm robotics Foraging and Aggregation are basic tasks yet that can be challenging when there is no communication between the robots. This paper proposes a strategy using a Mealy Deterministic Finite State Machine (DFSM) that switches between five states with two different algorithms, the Rebound avoider/follower through proximity sensors, and the Search blob/ePuck using the 2D image processing of the ePuck embedded camera. Ten trials for each scenario are simulated on V-rep in order to analyse the performance of the strategy in terms of the mean and standard deviation.
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{FORAGING AND RANDOM AGGREGATION}
+
+The DFSM diagram in \figref{fig:DFSM} which is defined by the \eqref{eq:DFSM} starts in the Behaviour state where the robot is set as \textit{avoider} while the time simulation is $t\leq 60[s]$. During that time, the Foraging state looks for the green blobs with the Search blob/ePuck algorithm while avoiding obstacles using the Rebound algorithm. Moreover, a Random Movement state is used to introduce randomness to the system so the agent can take different paths if there is no blob or obstacle detection. For $60<t\leq 120$, the Behaviour of the robot is set to \textit{follower} and switches to Random Aggregation state where it uses both algorithms, the Rebound to follow ePucks with the proximity sensors and the Search to look for the closest ePuck wheels. For both algorithms, the output is the angle of attack $\alpha_n$, where $n$ depends on the current state.
+
+\begin{equation}\label{eq:DFSM}
+	\begin{alignedat}{2}
+	S&=\lbrace B,F,R,A,Ra \rbrace\\ 	
+	\varSigma&= \lbrace t\leq 60,60<t\leq 120,bl~\exists,bl~\nexists,&&{}ob~\exists,ob~\nexists,\\
+	&&&{}eP~\exists, eP~\nexists \rbrace \\
+	s_0&=\lbrace B \rbrace \\
+	\end{alignedat}
+\end{equation}
+where, $S$ is the finite set of states, $\varSigma$ is the input alphabet, $\delta:S\times\varSigma$ is the state transition function, $s_0$ is the initial state, $\exists$ and $\nexists$ mean detection and no detection respectively.
+
+\begin{table}[!ht]
+	\caption{State transition function $\delta$}
+	\label{tab:delta}
+	\centering
+	\scalebox{1}{
+		\begin{tabular}{c|c|c|c}
+			         \bf{Input}          &  \bf{Current State}  &   \bf{Next State}    &  \bf{Output}   \\ \hline
+			           $t\leq 60$            &  \textbf{B}ehaviour  &  \textbf{F}oraging   &    avoider     \\
+			           $60<t\leq 120$            &  \textbf{B}ehaviour  & \textbf{A}ggregation &    follower    \\
+			  \textbf{bl}ob $\exists$    &  \textbf{F}oraging   &  \textbf{F}oraging   &  $\alpha_{C}$  \\
+			  \textbf{bl}ob $\nexists$   &  \textbf{F}oraging   & \textbf{Ra}ndom Mov. & $\alpha_{C_r}$ \\
+			\textbf{ob}stacle $\exists$  &  \textbf{F}oraging   &   \textbf{Re}bound   &  $\alpha_{R}$  \\
+			\textbf{ob}stacle $\nexists$ &   \textbf{R}ebound   &  \textbf{F}oraging   &       -        \\
+			\textbf{ob}stacle $\exists$  & \textbf{A}ggregation &   \textbf{Re}bound   &  $\alpha_{R}$  \\
+			\textbf{ob}stacle $\nexists$ &   \textbf{R}ebound   &   \bf{A}ggregation   &       -        \\
+			  \textbf{eP}uck $\exists$   & \textbf{A}ggregation & \textbf{A}ggregation &  $\alpha_{e}$  \\
+			 \textbf{eP}uck $\nexists$   & \textbf{A}ggregation & \textbf{Ra}ndom Mov. & $\alpha_{e_r}$
+		\end{tabular} 		
+	}	
+\end{table}
+
+\begin{figure}[!ht]
+	\centering	
+	\input{tikz/DFSM.tex}	
+	\caption{Mealy DFSM of the controller}
+	\label{fig:DFSM}
+\end{figure}
+
+\section{IMPLEMENTATION}
+
+\subsection{Unicycle model}
+The Unicycle model in \figref{fig:ePuck}a \cite{Ghommam2008} is used to control the angular velocities of the right and left wheels, $v_r$ and $v_l$, which are written as follows,
+\begin{equation}\label{eq:unicycle}
+	\begin{aligned}
+	v_r&=(2~V_x+\omega~L)/(2~R)\\
+	v_l&=(2~V_x-\omega~L)/(2~R)
+	\end{aligned}
+\end{equation}
+
+where, $V_x$ is the linear velocity of the robot, $L$ is the distance between the wheels, $R$ is the radius of each wheel, and $\omega$ is the angular velocity of the robot. Using $\alpha_n$ and the simulation sampling period $T$, the control variable for the simulation is $\omega=\alpha_n/T$, refer to code line \ref{line:ePuckConstants}, \ref{line:omega} and \ref{line:unicycle}.
+
+
+\subsection{Rebound avoider/follower algorithm}
+The Rebound algorithm \cite{Susnea2010} calculates the Rebound angle $\alpha_R$ to avoid/follow an obstacle/objective given $\alpha_0=\pi/N$ and $\alpha_i=i~\alpha_0$, 
+
+\begin{equation}
+	\begin{aligned}
+	\alpha_R&=\dfrac{\sum_{i=-N/2}^{N/2}~\alpha_i~D_i}{\sum_{i=-N/2}^{N/2}~D_i}
+	\end{aligned}
+\end{equation}
+where, $\alpha_0$ is the uniformly distributed angular pace, $N$ is the number of sensors, $\alpha_i$ is the angular information per pace $\alpha_i~\epsilon\left[-\frac{N}{2},\frac{N}{2}\right]$, and $D_i$ is the distance value obtained by the proximity sensors, refer to code line \ref{line:ReboundConstants} and \ref{line:rebound}.
+
+The weight vector given by $\alpha_i$ sets the robot behaviour for each corresponding mapped sensor $\lbrace s_1,s_2,s_3,s_4,s_5,s_6\rbrace$. For the \textit{avoider} is $\lbrace -3,-2,-1,1,2,3 \rbrace$, and for the \textit{follower} is $\lbrace 3,2,1,-1,-2,-3 \rbrace$. \figref{fig:ePuck}b and \figref{fig:ePuck}c shows an example of $\alpha_R$ with the Vector Field Histogram (VFH) for the \textit{avoider} case. Refer to code line \ref{line:behaviour} and \ref{line:vector}. 
+
+
+\begin{figure}[!ht]
+	\centering
+	\subfigure[Unicycle]{\input{tikz/unicycle.tex}}\hfill
+%	\subfigure[Sensitivity bubble]{\input{tikz/rebound_free.tex}}\hfill
+%	\subfigure[Rebound angle (avoider)]{\input{tikz/rebound_obstacle.tex}}
+	\subfigure[Rebound angle (avoider)]{\input{tikz/rebound_free_obstacle.tex}}\hfill
+	\subfigure[Avoider VFH]{\input{tikz/rebound_histogram.tex}}\hfill
+%	\subfigure[Blob angle]{\input{tikz/camera_blob.tex}}\hfill
+	\subfigure[Blob and ePuck angle]{\input{tikz/camera_blob_ePuck.tex}}	
+	\caption{Unicycle model, Rebound and Search angle}
+	\label{fig:ePuck}
+\end{figure}
+
+
+\subsection{Search blob/ePuck algorithm}
+The ePuck embedded camera on V-rep is a vision sensor that filters the RGB colours of the blobs and other ePucks. Not collected Blobs are mapped as green and collected ones as red, and the ePuck wheels are also mapped because they have green and red parts, refer to code line \ref{line:colours}. The data of interest that this sensor outputs are the size, centroid's 2D position, and orientation of the detected objects. Therefore, when objects are detected by the camera, a simple routine finds the biggest one which is the closest relative to the ePuck, and using \eqref{eq:search} it can be calculated the angle of attack $\alpha_C$ or $\alpha_e$ for the blobs and ePucks respectively, refer to \figref{fig:ePuck}d and code line \ref{line:foraging}. The orientation value is used to differentiate between objects, for blobs is $=0$ and for ePuck wheels is $\neq 0$, refer to code line \ref{line:wheels}.
+
+\begin{equation}\label{eq:search}
+	\begin{aligned}
+	\alpha_C&=\arctan \left[ (x_b-x_o)/(y_b-y_o) \right]\\
+	\alpha_e&=\arctan \left[ (x_e-x_o)/(y_e-y_o) \right]
+	\end{aligned}
+\end{equation}
+where, $(x_o,y_o)$, $(x_b,y_b)$, and $(x_e,y_e)$ are the robot, blob and another ePuck wheel relative position in the 2D image. In the Random state, either the robot is foraging but does not see any blobs or is aggregating but there is no other ePuck nearby, \eqref{eq:search} is modified with a random value $w$ with a probability function $P$,
+
+\begin{equation}\label{eq:random}
+ \begin{aligned}
+ \alpha_{C_r}&=\alpha_C~w\\
+ \alpha_{e_r}&=\alpha_e~w
+ \end{aligned}
+\end{equation}
+where, $P(\lbrace w~\epsilon~\Omega:X(w)=1/3 \rbrace)$ and $\Omega=\lbrace -1,0,1 \rbrace$, refer to code line \ref{line:random1} and \ref{line:random2}. 
+
+
+
+
+\section{RESULTS AND DISCUSSION}
+For both Scenarios, 4 Rounds of 10 trials each are simulated. Each Round has different initial positions of the robots, \figref{fig:results}b and \figref{fig:results}d, and each trial stops at $t=60$. In Scenario 1, \figref{fig:results}a shows that Round 4 has the best performance because $68\%$ of the time the robot will forage between 13 and 15 blobs. For Scenario 2, \figref{fig:results}b shows that Round 1 hast the best performance, $68\%$ of the time the swarm will forage between 37 and 39 blobs. For the Aggregation case that is simulated only in Scenario 2 \figref{fig:results}e and \figref{fig:results}f, Round 2 shows the best results, $68\%$ of the time between 2 and 4 agents aggregate at some random point.
+
+\begin{figure}[!ht]
+	\centering
+	\subfigure[Scenario 1 for $t\leq 60$ (1 robot)]{\includegraphics[width=0.75\linewidth]{figures/Robot1}}\hfill
+	\subfigure[]{\input{tikz/Round_1robot.tex}}
+	\subfigure[Scenario 2 for $t\leq 60$ (5 robots)]{\includegraphics[width=0.75\linewidth]{figures/Robot5}}\hfill
+	\subfigure[]{\input{tikz/Round_5robot.tex}}\hfill
+	\subfigure[Scenario 2 for $60<t\leq 120$]{\includegraphics[width=0.75\linewidth]{figures/Robot5_agregation}}\hfill
+	\subfigure[]{\includegraphics[width=0.1\linewidth]{figures/agregation}}
+	\caption{Simulation results}
+	\label{fig:results}
+\end{figure}
+
+
+
+\onecolumn
+
+\begin{multicols}{2}
+\printbibliography
+
+%\begin{thebibliography}{99}
+%	\bibitem{c1} G. O. Young, Synthetic structure of industrial plastics (Book style with paper title and editor), in Plastics, 2nd ed. vol. 3, J. Peters, Ed.  New York: McGraw-Hill, 1964, pp. 15Ð64.
+%	\bibitem{c2} W.-K. Chen, Linear Networks and Systems (Book style).	Belmont, CA: Wadsworth, 1993, pp. 123Ð135.
+%\end{thebibliography}
+
+\end{multicols}
+
+
+
+\section{APPENDIX}
+\lstinputlisting[language={[5.2]Lua},caption={},label={cod:vrep},escapechar=|]{vrep.txt}
+
+
+
+
+\end{document}

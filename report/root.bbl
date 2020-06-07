@@ -1,0 +1,109 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{none/global/}
+  \entry{Ghommam2008}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=GJ}{%
+         family={Ghommam},
+         familyi={G\bibinitperiod},
+         given={Jawhar},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Saad},
+         familyi={S\bibinitperiod},
+         given={Maarouf},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MF}{%
+         family={Mnif},
+         familyi={M\bibinitperiod},
+         given={Faical},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{IEEE}}%
+    }
+    \strng{namehash}{GJSMMF1}
+    \strng{fullhash}{GJSMMF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2008 {IEEE} International Conference on Robotics and
+  Automation}
+    \verb{doi}
+    \verb 10.1109/robot.2008.4543495
+    \endverb
+    \field{title}{Formation path following control of unicycle-type mobile
+  robots}
+    \field{year}{2008}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Susnea2010}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=SI}{%
+         family={Susnea},
+         familyi={S\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Filipescu},
+         familyi={F\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=VG}{%
+         family={Vasiliu},
+         familyi={V\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=CG}{%
+         family={Coman},
+         familyi={C\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=RA}{%
+         family={Radaschin},
+         familyi={R\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {{IEEE}}%
+    }
+    \strng{namehash}{SI+1}
+    \strng{fullhash}{SIFAVGCGRA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{{IEEE} {ICCA} 2010}
+    \verb{doi}
+    \verb 10.1109/icca.2010.5524302
+    \endverb
+    \field{title}{The bubble rebound obstacle avoidance algorithm for mobile
+  robots}
+    \field{year}{2010}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+\endsortlist
+\endinput
