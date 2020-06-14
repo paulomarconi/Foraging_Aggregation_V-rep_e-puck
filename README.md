@@ -8,6 +8,7 @@ Scenes (V-rep) folder contains:
 - Simulation for 1 robot (Sim_1_Robot.ttt)
 - Simulation for 5 robots (Sim_5_Robots.ttt)
 
-University of Sheffield, UK.     
-Course: ACS6121 - Robotics and Autonomous Systems  
-Prof. Roderich Gross    
+Coursework project:
+- University of Sheffield, UK.     
+- Course: ACS6121 - Robotics and Autonomous Systems  
+- Prof. Roderich Gross    
