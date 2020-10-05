@@ -161,7 +161,7 @@ urlcolor=black %
 
 
 %------------------------------------------------------------------------------------------
-\title{\LARGE \bf Simple Foraging and Random Aggregation Strategy for swarm robotics without communication - ACS6121 2018/19}
+\title{\LARGE \bf Simple Foraging and Random Aggregation Strategy for swarm robotics without communication}
 
 \author{ %
 	Paulo Roberto Loma Marconi$^{1}$% <-this % stops a space
@@ -187,7 +187,7 @@ urlcolor=black %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{FORAGING AND RANDOM AGGREGATION}
 
-The DFSM diagram in \figref{fig:DFSM} which is defined by the \eqref{eq:DFSM} starts in the Behaviour state where the robot is set as \textit{avoider} while the time simulation is $t\leq 60[s]$. During that time, the Foraging state looks for the green blobs with the Search blob/ePuck algorithm while avoiding obstacles using the Rebound algorithm. Moreover, a Random Movement state is used to introduce randomness to the system so the agent can take different paths if there is no blob or obstacle detection. For $60<t\leq 120$, the Behaviour of the robot is set to \textit{follower} and switches to Random Aggregation state where it uses both algorithms, the Rebound to follow ePucks with the proximity sensors and the Search to look for the closest ePuck wheels. For both algorithms, the output is the angle of attack $\alpha_n$, where $n$ depends on the current state.
+The DFSM diagram in \figref{fig:DFSM}, which is defined by \eqref{eq:DFSM}, starts in the Behaviour state where the robot is set as \textit{avoider} while the time simulation is $t\leq 60[s]$. During that time, the Foraging state looks for the green blobs with the Search blob/ePuck algorithm while avoiding obstacles using the Rebound algorithm. Moreover, a Random Movement state is used to introduce randomness to the system so the agent can take different paths if there is no blob or obstacle detection. For $60<t\leq 120$, the Behaviour of the robot is set to \textit{follower} and switches to Random Aggregation state where it uses both algorithms, the Rebound to follow ePucks with the proximity sensors and the Search to look for the closest ePuck wheels. For both algorithms, the output is the angle of attack $\alpha_n$, where $n$ depends on the current state.
 
 \begin{equation}\label{eq:DFSM}
 	\begin{alignedat}{2}
@@ -213,7 +213,7 @@ where, $S$ is the finite set of states, $\varSigma$ is the input alphabet, $\del
 			\textbf{ob}stacle $\exists$  &  \textbf{F}oraging   &   \textbf{Re}bound   &  $\alpha_{R}$  \\
 			\textbf{ob}stacle $\nexists$ &   \textbf{R}ebound   &  \textbf{F}oraging   &       -        \\
 			\textbf{ob}stacle $\exists$  & \textbf{A}ggregation &   \textbf{Re}bound   &  $\alpha_{R}$  \\
-			\textbf{ob}stacle $\nexists$ &   \textbf{R}ebound   &   \bf{A}ggregation   &       -        \\
+			\textbf{ob}stacle $\nexists$ &   \textbf{R}ebound   & \textbf{A}ggregation &       -        \\
 			  \textbf{eP}uck $\exists$   & \textbf{A}ggregation & \textbf{A}ggregation &  $\alpha_{e}$  \\
 			 \textbf{eP}uck $\nexists$   & \textbf{A}ggregation & \textbf{Ra}ndom Mov. & $\alpha_{e_r}$
 		\end{tabular} 		
@@ -230,7 +230,7 @@ where, $S$ is the finite set of states, $\varSigma$ is the input alphabet, $\del
 \section{IMPLEMENTATION}
 
 \subsection{Unicycle model}
-The Unicycle model in \figref{fig:ePuck}a \cite{Ghommam2008} is used to control the angular velocities of the right and left wheels, $v_r$ and $v_l$, which are written as follows,
+The Unicycle model in \figref{fig:ePuck}a \cite{Ghommam2008} controls the angular velocities of the right and left wheels, $v_r$ and $v_l$ as follows,
 \begin{equation}\label{eq:unicycle}
 	\begin{aligned}
 	v_r&=(2~V_x+\omega~L)/(2~R)\\
@@ -251,7 +251,7 @@ The Rebound algorithm \cite{Susnea2010} calculates the Rebound angle $\alpha_R$ 
 \end{equation}
 where, $\alpha_0$ is the uniformly distributed angular pace, $N$ is the number of sensors, $\alpha_i$ is the angular information per pace $\alpha_i~\epsilon\left[-\frac{N}{2},\frac{N}{2}\right]$, and $D_i$ is the distance value obtained by the proximity sensors, refer to code line \ref{line:ReboundConstants} and \ref{line:rebound}.
 
-The weight vector given by $\alpha_i$ sets the robot behaviour for each corresponding mapped sensor $\lbrace s_1,s_2,s_3,s_4,s_5,s_6\rbrace$. For the \textit{avoider} is $\lbrace -3,-2,-1,1,2,3 \rbrace$, and for the \textit{follower} is $\lbrace 3,2,1,-1,-2,-3 \rbrace$. \figref{fig:ePuck}b and \figref{fig:ePuck}c shows an example of $\alpha_R$ with the Vector Field Histogram (VFH) for the \textit{avoider} case. Refer to code line \ref{line:behaviour} and \ref{line:vector}. 
+The weight vector given by $\alpha_i$ sets the robot behaviour for each corresponding mapped sensor $\lbrace s_1,s_2,s_3,s_4,s_5,s_6\rbrace$. For the \textit{avoider} is $\lbrace -3,-2,-1,1,2,3 \rbrace$, and for the \textit{follower} is $\lbrace 3,2,1,-1,-2,-3 \rbrace$. \figref{fig:ePuck}b and \figref{fig:ePuck}c show an example of $\alpha_R$ with the Vector Field Histogram (VFH) for the \textit{avoider} case. Refer to code line \ref{line:behaviour} and \ref{line:vector}. 
 
 
 \begin{figure}[!ht]
@@ -322,7 +322,7 @@ For both Scenarios, 4 Rounds of 10 trials each are simulated. Each Round has dif
 
 
 \section{APPENDIX}
-\lstinputlisting[language={[5.2]Lua},caption={},label={cod:vrep},escapechar=|]{vrep.txt}
+\lstinputlisting[language={[5.2]Lua},caption={},label={cod:vrep},escapechar=|]{vrep.lua}
 
 
 
