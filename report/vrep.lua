@@ -29,7 +29,7 @@ L=0.051 -- 5.1 cm, distance between the wheels
 D=0.041 -- 4.1 cm, wheel diameter
 R=D/2 -- wheel radius
 
-timeSimul=60 -- time simulation threshold [s]
+timeSimul=60 -- simulation time threshold [s]
 
 -- Functions: -------------------------------------------------------------------------------------------
 -- Color Blob detection
